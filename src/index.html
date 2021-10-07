@@ -1,13 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>🔥 HotHotHot</title>
   <link rel="stylesheet" href="css/tailwind.css">
 </head>
-<body>
-  <h1 class="text-7xl font-bold text-center text-blue-500">Hello world!</h1>
+
+<body class="bg-myBg text-white px-6 md:px-9 lg:px-0">
+  <header class="w-full py-8">
+    <nav>
+      <ul class="flex justify-between items-center">
+        <li><a href="profile.html"><img class="rounded-full min-h-10 max-h-20 h-12 md:h-14 lg:h-16 " src="asset/img/profilePicture.jpg" alt="Link to user setting"></a></li>
+        <li>
+          <h1 class="text-2xl font-bold">HotHotHot</h1>
+        </li>
+        <li><a class="min-h-10 max-h-20 h-20 md:h-14 lg:h-16 " href="setting.html"><img src="asset/img/setting.svg" alt="Link to app setting"></a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="mt-9">
+    <article class=" temp_section ">
+      <header class="flex-fix">
+        <h2>Temperature</h2>
+        <p class="text-base text-gray-400 mt-1">Wednesday, 29 Sep</p>
+      </header>
+      <section class="Aurora_Bg">
+        <h3>Outside</h3>
+        <ul class="flex mt-4">
+          <li>
+            <data value="30" class="temp border-r-2 pr-3">30°C</data>
+          </li>
+          <li class="flex flex-col justify-center px-5">
+            <data value="30" class="inline-flex items-center text-2xl"><img class="max" src="asset/img/arrow.svg" alt="max">30°c</data>
+            <data value="14" class="inline-flex items-center text-2xl"><img class="min" src="asset/img/arrow.svg" alt="min">14°c</data>
+          </li>
+        </ul>
+        <a class="inline-flex items-center text-lg mt-5" href="#">View more <img class="-rotate-90 ml-1 w-5" src="asset/img/arrow.svg" alt=""></a>
+      </section>
+      <section class="Aurora_Bg">
+        <h3>Inside</h3>
+        <ul class="flex mt-4">
+          <li>
+            <data value="26" class="temp border-r-2 pr-3">26°C</data>
+          </li>
+          <li class="flex flex-col justify-center px-5">
+            <data value="26" class="inline-flex items-center text-2xl"><img class="max" src="asset/img/arrow.svg" alt="max">26°c</data>
+            <data value="20" class="inline-flex items-center text-2xl"><img class="min" src="asset/img/arrow.svg" alt="min">20°c</data>
+          </li>
+        </ul>
+        <a class="inline-flex items-center text-lg mt-5" href="#">View more <img class="-rotate-90 ml-1 w-5" src="asset/img/arrow.svg" alt=""></a>
+      </section>
+    </article>
+    <article class="mt-5">
+      <h2>Last alert</h2>
+      <a class="inline-flex items-end text-lg text-gray-400" href="#">View more <img class="ml-1 w-5 justify-end" src="asset/img/arrow-nobar.svg" alt=""></a>
+    </article>
+  </main>
 </body>
+
 </html>

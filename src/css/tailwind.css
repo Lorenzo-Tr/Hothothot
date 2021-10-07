@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h2{
+  @apply text-3xl font-extrabold tracking-wide;
+}
+
+h3{
+  @apply text-2xl font-bold;
+}
+
+.max{
+  @apply rotate-180;
+  height: 80%;
+}
+
+.min{
+  height: 80%;
+}
+
+.temp{
+  @apply text-7xl pr-5 font-bold;
+}
+
+.flex-fix{
+  flex-basis: 100%;
+}
+
+.temp_section{
+  @apply flex flex-wrap justify-between max-w-5xl;
+}
+
+@media (min-width: 768px) {
+  .temp_section{
+    flex-direction: inherit;
+  }
+}
+
+@media (min-width: 1024px) {
+  body{
+    max-width: 950px;
+    margin: 0 auto;
+  }
+}
+
+.Aurora_Bg{
+  overflow: hidden;
+  background-color: white;
+  background-image: 
+    radial-gradient(at top right, #2575FC, transparent),
+    radial-gradient(at bottom left, #6A11CB, transparent),
+    radial-gradient(at bottom right, #7AA8F5, transparent),
+    radial-gradient(at top left, #B581ED, transparent);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  @apply rounded-3xl p-5 mt-5 lg:max-w-md w-full min-w-min;
+}
+
