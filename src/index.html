@@ -13,11 +13,13 @@
   <header class="w-full py-8">
     <nav>
       <ul class="flex justify-between items-center">
-        <li><a href="profile.html"><img class="rounded-full min-h-10 max-h-20 h-12 md:h-14 lg:h-16 " src="asset/img/profilePicture.jpg" alt="Link to user setting"></a></li>
+        <li><a href="profile.html"><img class="rounded-full min-h-10 h-12 md:h-14 lg:h-16 "
+              src="asset/img/profilePicture.jpg" alt="Link to user setting"></a></li>
         <li>
-          <h1 class="text-2xl font-bold">HotHotHot</h1>
+          <h1>HotHotHot</h1>
         </li>
-        <li><a class="min-h-10 max-h-20 h-20 md:h-14 lg:h-16 " href="setting.html"><img src="asset/img/setting.svg" alt="Link to app setting"></a></li>
+        <li><a href="setting.html"><img class="h-9 md:h-12" src="asset/img/setting.svg"
+              alt="Link to app setting"></a></li>
       </ul>
     </nav>
   </header>
@@ -27,36 +29,67 @@
         <h2>Temperature</h2>
         <p class="text-base text-gray-400 mt-1">Wednesday, 29 Sep</p>
       </header>
-      <section class="Aurora_Bg">
+      <a href="#" class="Aurora_Bg">
         <h3>Outside</h3>
         <ul class="flex mt-4">
           <li>
             <data value="30" class="temp border-r-2 pr-3">30°C</data>
           </li>
           <li class="flex flex-col justify-center px-5">
-            <data value="30" class="inline-flex items-center text-2xl"><img class="max" src="asset/img/arrow.svg" alt="max">30°c</data>
-            <data value="14" class="inline-flex items-center text-2xl"><img class="min" src="asset/img/arrow.svg" alt="min">14°c</data>
+            <data value="30" class="inline-flex items-center text-2xl"><img class="max" src="asset/img/arrow.svg"
+                alt="max">30°c</data>
+            <data value="14" class="inline-flex items-center text-2xl"><img class="min" src="asset/img/arrow.svg"
+                alt="min">14°c</data>
           </li>
         </ul>
-        <a class="inline-flex items-center text-lg mt-5" href="#">View more <img class="-rotate-90 ml-1 w-5" src="asset/img/arrow.svg" alt=""></a>
-      </section>
-      <section class="Aurora_Bg">
-        <h3>Inside</h3>
-        <ul class="flex mt-4">
-          <li>
-            <data value="26" class="temp border-r-2 pr-3">26°C</data>
-          </li>
-          <li class="flex flex-col justify-center px-5">
-            <data value="26" class="inline-flex items-center text-2xl"><img class="max" src="asset/img/arrow.svg" alt="max">26°c</data>
-            <data value="20" class="inline-flex items-center text-2xl"><img class="min" src="asset/img/arrow.svg" alt="min">20°c</data>
-          </li>
-        </ul>
-        <a class="inline-flex items-center text-lg mt-5" href="#">View more <img class="-rotate-90 ml-1 w-5" src="asset/img/arrow.svg" alt=""></a>
-      </section>
+        <p class="inline-flex items-center text-lg mt-5" href="#">View more <img class="-rotate-90 ml-1 w-5"
+            src="asset/img/arrow.svg" alt=""></p>
+        </section>
+        <a href="#" class="Aurora_Bg">
+          <h3>Inside</h3>
+          <ul class="flex mt-4">
+            <li>
+              <data value="26" class="temp border-r-2 pr-3">26°C</data>
+            </li>
+            <li class="flex flex-col justify-center px-5">
+              <data value="26" class="inline-flex items-center text-2xl"><img class="max" src="asset/img/arrow.svg"
+                  alt="max">26°c</data>
+              <data value="20" class="inline-flex items-center text-2xl"><img class="min" src="asset/img/arrow.svg"
+                  alt="min">20°c</data>
+            </li>
+          </ul>
+          <p class="inline-flex items-center text-lg mt-5" href="#">View more <img class="-rotate-90 ml-1 w-5"
+              src="asset/img/arrow.svg" alt=""></p>
+        </a>
     </article>
-    <article class="mt-5">
-      <h2>Last alert</h2>
-      <a class="inline-flex items-end text-lg text-gray-400" href="#">View more <img class="ml-1 w-5 justify-end" src="asset/img/arrow-nobar.svg" alt=""></a>
+    <article class="mt-5 mb-8">
+      <header class="flex justify-between">
+        <h2>Last alert</h2>
+        <a class="inline-flex items-end text-lg text-gray-400" href="#">View more <img class="ViewMore_Icon"
+            src="asset/img/arrow-nobar.svg" alt=""></a>
+      </header>
+      <section class="bg-gray-800 p-6 mt-5 rounded-3xl">
+        <h3 class="flex flex-col items-center text-gray-400">
+          <img class="w-24 lg:w-2/12 mb-3" src="asset/img/NoAlert.svg" alt="">
+          There is no alert
+        </h3>
+        <ul class="flex flex-col" id="lastAlert">
+          <template id="Warning">
+            <li>
+              <ul class="p-3 flex lg:flex-wrap">
+                <li class="self-center">
+                  <img class="w-14 lg:w-16" src="asset/img/Warning.svg" alt="">
+                </li>
+                <li class="ml-5">
+                  <h4 class="flex-fix text-gray-400">Alert</h4>
+                  <p class="text-xl alertContent"></p>
+                </li>
+              </ul>
+            </li>
+            <hr class="w-1/2 self-center border-gray-600 my-2">
+          </template>
+        </ul>
+      </section>
     </article>
   </main>
 </body>
