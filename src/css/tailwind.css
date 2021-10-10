@@ -14,17 +14,37 @@ h1 {
   @apply text-2xl font-bold;
 }
 
-.max {
+.max img {
   @apply rotate-180;
   height: 80%;
 }
 
-.min {
+.max::after {
+  content: attr(value)"°C";
+}
+
+.min img {
   height: 80%;
+}
+
+.min::after {
+  content: attr(value)"°C";
+}
+
+.setValue::after {
+  content: attr(value)"°C";
+}
+
+.hours::after {
+  content: attr(value);
 }
 
 .temp {
   @apply text-7xl pr-5 font-bold;
+}
+
+.temp::after {
+  content: attr(value)"°C";
 }
 
 .flex-fix {
@@ -63,5 +83,4 @@ h1 {
     radial-gradient(at top left, #B581ED, transparent);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  @apply rounded-3xl p-5 mt-5 lg:max-w-md w-full min-w-min;
 }

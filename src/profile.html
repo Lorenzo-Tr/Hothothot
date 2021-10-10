@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🔥 HotHotHot</title>
   <link rel="stylesheet" href="css/tailwind.css">
+  <script type="module" src="js/main.js" defer></script>
 </head>
 
 <body class="bg-myBg text-white px-6 md:px-9 lg:px-0">
@@ -23,13 +24,45 @@
     </nav>
   </header>
   <main>
-    <img src="asset/img/profilePicture.jpg" alt="Your profile picture">
-    <h2>Florence Risco</h2>
-    <button>Change Email</button>
-    <button>Change Password</button>
-    <button>Change Change Username</button>
-    <button>Delete Account</button>
-    <button>Log-out</button>
+    <article class="flex flex-col items-center max-w-md m-auto">
+      <header class="flex flex-col items-center">
+        <section class="relative">
+          <button class="rounded-full bg-white p-1 border-4 border-myBg absolute right-0"><img class="w-5 lg:w-7" src="asset/img/edit.svg" alt="Editer la photo de profile"></button>
+          <img class="rounded-full w-28 lg:w-36" src="asset/img/profilePicture.jpg" alt="Your profile picture">
+        </section>
+        <h2 class="mt-2">Florence Risco</h2>
+      </header>
+      <section class="flex flex-col items-start w-full bg-gray-800 rounded-3xl p-8 mt-5">
+        <h3>Account information</h3>
+        <ul class="w-full mt-5 flex flex-col gap-4">
+          <li class="w-full grid grid-cols-4 relative">
+            <section class="col-span-3 flex flex-col ">
+              <label class="text-gray-400" for="name">Display name</label>
+              <input class="w-min bg-transparent text-xl" name="name" type="text" value="Florence Risco" disabled>
+            </section>
+            <button class="px-4 p-2 bg-white text-myBg uppercase font-bold absolute right-0 bottom-0 rounded-lg text-sm">Edit</button>
+          </li>
+          <li class="w-full grid grid-cols-4 relative">
+            <section class="col-span-3 flex flex-col ">
+              <label class="text-gray-400" for="mail">Email</label>
+              <input  class="w-min bg-transparent text-xl" name="mail" type="email" value="florisco56@gmail.com" disabled>
+            </section> 
+            <button class="px-4 p-2 bg-white text-myBg uppercase font-bold absolute right-0 bottom-0 rounded-lg text-sm">Edit</button>
+          </li>
+          <li class="w-full grid grid-cols-4 relative">
+            <section class="col-span-3 flex flex-col">
+              <label class="text-gray-400" for="password">Password</label>
+              <input  class="w-min bg-transparent text-xl" name="password" type="password" value="Mypasswordestsafe" disabled>
+            </section>
+            <button class="px-4 p-2 bg-white text-myBg uppercase font-bold absolute right-0 bottom-0 rounded-lg text-sm">Change</button>
+          </li>
+        </ul>
+      </section>
+      <footer  class="w-full flex flex-col items-center my-20">
+        <a class="text-red text-xl" href="#">Delete your account</a>
+        <button class="w-full py-3 Aurora_Bg rounded-xl text-2xl uppercase font-bold mt-8">Sign Out</button>
+      </footer>
+    </article>
   </main>
 </body>
 

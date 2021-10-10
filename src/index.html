@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🔥 HotHotHot</title>
   <link rel="stylesheet" href="css/tailwind.css">
+  <script type="module" src="js/main.js" defer></script>
 </head>
 
 <body class="bg-myBg text-white px-6 md:px-9 lg:px-0">
@@ -27,35 +28,35 @@
     <article class=" temp_section ">
       <header class="flex-fix">
         <h2>Temperature</h2>
-        <p class="text-base text-gray-400 mt-1">Wednesday, 29 Sep</p>
+        <p id="currentDate" class="text-base text-gray-400 mt-1">Javascript need to be active</p>
       </header>
-      <a href="#" class="Aurora_Bg">
-        <h3>Outside</h3>
+      <a href="exterior.html" class="Aurora_Bg rounded-3xl p-5 mt-5 lg:max-w-md w-full min-w-min" id="exterior">
+        <h3>Exterior</h3>
         <ul class="flex mt-4">
           <li>
-            <data value="30" class="temp border-r-2 pr-3">30°C</data>
+            <data value="30" class="temp border-r-2 pr-3"></data>
           </li>
           <li class="flex flex-col justify-center px-5">
-            <data value="30" class="inline-flex items-center text-2xl"><img class="max" src="asset/img/arrow.svg"
-                alt="max">30°c</data>
-            <data value="14" class="inline-flex items-center text-2xl"><img class="min" src="asset/img/arrow.svg"
-                alt="min">14°c</data>
+            <data value="30" class="inline-flex items-center text-2xl max"><img src="asset/img/arrow.svg"
+                alt="max"></data>
+            <data value="14" class="inline-flex items-center text-2xl min"><img class="min" src="asset/img/arrow.svg"
+                alt="min"></data>
           </li>
         </ul>
         <p class="inline-flex items-center text-lg mt-5" href="#">View more <img class="-rotate-90 ml-1 w-5"
             src="asset/img/arrow.svg" alt=""></p>
         </section>
-        <a href="#" class="Aurora_Bg">
-          <h3>Inside</h3>
+        <a href="interior.html" class="Aurora_Bg rounded-3xl p-5 mt-5 lg:max-w-md w-full min-w-min" id="interior">
+          <h3>Interior</h3>
           <ul class="flex mt-4">
             <li>
-              <data value="26" class="temp border-r-2 pr-3">26°C</data>
+              <data value="26" class="temp border-r-2 pr-3"></data>
             </li>
             <li class="flex flex-col justify-center px-5">
-              <data value="26" class="inline-flex items-center text-2xl"><img class="max" src="asset/img/arrow.svg"
-                  alt="max">26°c</data>
-              <data value="20" class="inline-flex items-center text-2xl"><img class="min" src="asset/img/arrow.svg"
-                  alt="min">20°c</data>
+              <data value="26" class="inline-flex items-center text-2xl max"><img src="asset/img/arrow.svg"
+                  alt="max"></data>
+              <data value="20" class="inline-flex items-center text-2xl min"><img src="asset/img/arrow.svg"
+                  alt="min"></data>
             </li>
           </ul>
           <p class="inline-flex items-center text-lg mt-5" href="#">View more <img class="-rotate-90 ml-1 w-5"
@@ -65,7 +66,7 @@
     <article class="mt-5 mb-8">
       <header class="flex justify-between">
         <h2>Last alert</h2>
-        <a class="inline-flex items-end text-lg text-gray-400" href="#">View more <img class="ViewMore_Icon"
+        <a class="inline-flex items-end text-lg text-gray-400" href="alert.html">View more <img class="ViewMore_Icon"
             src="asset/img/arrow-nobar.svg" alt=""></a>
       </header>
       <section class="bg-gray-800 p-6 mt-5 rounded-3xl ">
