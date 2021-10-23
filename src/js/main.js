@@ -1,6 +1,6 @@
 import * as Utils from './modules/utils.js';
 import * as DOM from './modules/const.js';
-import * as Chart from './modules/chart.js';
+import { makeChart } from './modules/chart.js';
 
 window.addEventListener("load", () => {
   if (DOM.OUTPUT_DATE != null)
@@ -9,12 +9,6 @@ window.addEventListener("load", () => {
     Utils.getTempJSON("../asset/data/temp.json", data => Utils.setTemp(DOM, data));
   if (DOM.EXTERIOR_MINI_CARD != null) {
     Utils.getTempJSON("../asset/data/temp.json", data => Utils.setTempExterior(DOM, data));
-    Chart.makeChart(DOM.CANVAS_EXTERIOR)
+    makeChart(DOM.CANVAS_EXTERIOR)
   }
 })
-
-
-
-
-
-
