@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (max-width: 640px) {
+  html {
+    font-size: 12px;
+  }
+}
+
 h2 {
   @apply text-3xl font-extrabold tracking-wide;
 }
@@ -33,6 +39,10 @@ h1 {
 
 .setValue::after {
   content: attr(value)"°C";
+}
+
+.setDataValue::after {
+  content: attr(value);
 }
 
 .hours::after {
