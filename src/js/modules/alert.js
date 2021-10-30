@@ -1,10 +1,26 @@
-export function appendWarning(parent) {
+export async function appendWarning(parent) {
   if (localStorage.getItem('EXTERIOR_TEMP') > 35) {
-    let Warning = new alert('warning', "HotHotHot ! The temperature is really high ");
+    let Warning = new alert('warning', "🥵 HotHotHot ! The temperature is really high ");
     Warning.appendAlert(parent)
   }
   if (localStorage.getItem('EXTERIOR_TEMP') < 0) {
-    let Warning = new alert('warning', "Very low temperature! Cover yourself with 5 layers of clothing before going out");
+    let Warning = new alert('warning', "🥶 Very low temperature! Cover yourself with 5 layers of clothing before going out");
+    Warning.appendAlert(parent)
+  }
+  if (localStorage.getItem('INTERIOR_TEMP') > 20 && localStorage.getItem('INTERIOR_TEMP') < 25) {
+    let Information = new alert('info', "You should probably turn on your fan or air conditioning 😉");
+    Information.appendAlert(parent)
+  }
+  if (localStorage.getItem('INTERIOR_TEMP') > 28 ) {
+    let Warning = new alert('warning', "To survive go inside your refrigerator 🧊");
+    Warning.appendAlert(parent)
+  }
+  if (localStorage.getItem('INTERIOR_TEMP') > 11 && localStorage.getItem('INTERIOR_TEMP') < 18) {
+    let Information = new alert('info', "You should probably turn on your heater 😉");
+    Information.appendAlert(parent)
+  }
+  if (localStorage.getItem('INTERIOR_TEMP') < 11  && localStorage.getItem('INTERIOR_TEMP') > 0) {
+    let Warning = new alert('warning', "To survive, roll yourself in any fabric you can find 🛏");
     Warning.appendAlert(parent)
   }
 }
@@ -31,19 +47,19 @@ class alert {
   }
 
   selectCorrectImg(type) {
-    if (type = "info") {
+    if (type === "info") {
       this.imgsrc = "asset/img/Info.webp";
     }
-    if (type = "warning") {      
+    if (type === "warning") {      
       this.imgsrc = "asset/img/Warning.webp";
     }
   }
 
   titleGenerator(type) {
-    if (type = "info") {
+    if (type === "info") {
       this.title = 'Information - ' + this.getFormatedDate()
     }
-    if (type = "warning") {
+    if (type === "warning") {
       this.title = 'Warning - ' + this.getFormatedDate()
     }
   }

@@ -5,7 +5,7 @@ import * as Alert from './modules/alert.js';
 
 window.addEventListener("load", () => {
   if (localStorage.length == 0) {
-    const promise = Utils.getTempJSON("../asset/data/temp.json", r => {
+    Utils.getTempJSON("../asset/data/temp.json", r => {
       let data = Utils.getRandomData(r);
 
       localStorage.setItem('EXTERIOR_TEMP', data.exterior.temp)
@@ -16,38 +16,14 @@ window.addEventListener("load", () => {
       localStorage.setItem('INTERIOR_MAX', data.interior.max)
       localStorage.setItem('INTERIOR_MIN', data.interior.min)
 
-      if (DOM.NODE_EXTERIOR_TEMP != null || DOM.NODE_INTERIOR_TEMP != null || DOM.TEMPLATE_WARNING != null) {
-        let node = {
-          "exterior": DOM.NODE_EXTERIOR_TEMP,
-          "interior": DOM.NODE_INTERIOR_TEMP
-        }
-        Utils.setTemp(node);
-
-        Alert.appendWarning(DOM.LASTALERT_LIST);
-
-        if (DOM.LASTALERT_LIST.childElementCount != 0) {
-          DOM.ALERT_PLACEHOLDER.classList.toggle("hidden");
-        }
-      }
+      loadHomeData();
     });
   }
 
   if (DOM.OUTPUT_DATE != null)
     Utils.getStringDate(DOM.OUTPUT_DATE);
 
-  if (DOM.NODE_EXTERIOR_TEMP != null || DOM.NODE_INTERIOR_TEMP != null || DOM.TEMPLATE_WARNING != null) {
-    let node = {
-      "exterior": DOM.NODE_EXTERIOR_TEMP,
-      "interior": DOM.NODE_INTERIOR_TEMP
-    }
-    Utils.setTemp(node);
-
-    Alert.appendWarning(DOM.LASTALERT_LIST);
-
-    if (DOM.LASTALERT_LIST.childElementCount != 0) {
-      DOM.ALERT_PLACEHOLDER.classList.toggle("hidden");
-    }
-  }
+  loadHomeData();
 
   if (DOM.EXTERIOR_MINI_CARD != null) {
     Utils.setTemp(DOM.EXTERIOR_MINI_CARD, "exterior");
@@ -66,7 +42,7 @@ window.addEventListener("load", () => {
       { '10:00': "12" },
       { '09:00': "9" },
     ]
-    Utils.showContent(DOM.TEMPLATE_INTERIOR, DOM.HISTORY, data)
+    Utils.showHistory(DOM.TEMPLATE_INTERIOR, DOM.HISTORY, data)
   }
   if (DOM.TEMPLATE_EXTERIOR != null) {
     let data = [
@@ -77,7 +53,7 @@ window.addEventListener("load", () => {
       { '10:00': "12" },
       { '09:00': "9" },
     ]
-    Utils.showContent(DOM.TEMPLATE_EXTERIOR, DOM.HISTORY, data)
+    Utils.showHistory(DOM.TEMPLATE_EXTERIOR, DOM.HISTORY, data)
   }
 })
 
@@ -86,6 +62,22 @@ if (DOM.FETCH_NEW_DATA != null) {
     localStorage.clear()
     window.location = ''
   });
+}
+
+function loadHomeData() {
+  if (DOM.NODE_EXTERIOR_TEMP != null || DOM.NODE_INTERIOR_TEMP != null || DOM.TEMPLATE_WARNING != null) {
+    let node = {
+      "exterior": DOM.NODE_EXTERIOR_TEMP,
+      "interior": DOM.NODE_INTERIOR_TEMP
+    }
+    Utils.setTemp(node);
+
+    Alert.appendWarning(DOM.LASTALERT_LIST).then(() => {
+      if (DOM.LASTALERT_LIST.childElementCount != 0) {
+        DOM.ALERT_PLACEHOLDER.classList.toggle("hidden");
+      }
+    })
+  }
 }
 
 
