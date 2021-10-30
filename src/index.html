@@ -62,6 +62,8 @@
           <p class="inline-flex items-center text-lg mt-5" href="#">View more <img class="-rotate-90 ml-1 w-5"
               src="asset/img/arrow.svg" alt=""></p>
         </a>
+        <button id="fetchnewdada" class="inline-flex items-end text-lg text-gray-400 mt-5">Fetch new data <img class="ViewMore_Icon"
+          src="asset/img/arrow-nobar.svg" alt=""></button>
     </article>
     <article class="mt-5 mb-8">
       <header class="flex justify-between">
@@ -74,17 +76,17 @@
           <img class="w-24 lg:w-2/12 mb-3" src="asset/img/NoAlert.svg" alt="">
           There is no alert
         </h3>
-        <ul class="flex flex-col" id="lastAlert">         
+        <ul class="flex flex-col" id="lastAlert">
         </ul>
-        <template id="Warning">
+        <template id="templateAlert">
           <li>
             <ul class="p-3 flex lg:flex-wrap">
               <li class="self-center">
-                <img class="w-14 lg:w-16" src="asset/img/Warning.svg" alt="">
+                <img class="w-14 lg:w-16" src="asset/img/Info.webp" alt="">
               </li>
               <li class="ml-5">
-                <h4 class="flex-fix text-gray-400 alertTitle">Alert 08/10/2021 - 10:40</h4>
-                <p class="text-xl alertContent"></p>
+                <h4 class="flex-fix text-gray-400">Alert 08/10/2021 - 10:40</h4>
+                <p class="text-xl"></p>
               </li>
             </ul>
           </li>

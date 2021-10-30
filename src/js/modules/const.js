@@ -1,9 +1,9 @@
 export const OUTPUT_DATE = document.querySelector('#currentDate');
+export const FETCH_NEW_DATA = document.querySelector('#fetchnewdada');
 
 export const NODE_EXTERIOR_TEMP = document.querySelector('#exterior');
 export const NODE_INTERIOR_TEMP = document.querySelector('#interior');
-export const TEMPLATE_WARNING = document.querySelector('#Warning');
-export const ALERT_SECTION = document.querySelector('#lastAlert');
+export const TEMPLATE_ALERT = document.querySelector('#templateAlert');
 export const LASTALERT_LIST = document.querySelector('#lastAlert');
 export const ALERT_PLACEHOLDER = document.querySelector('#AlertPlaceholder');
 

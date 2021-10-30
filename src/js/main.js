@@ -4,25 +4,58 @@ import { makeChart } from './modules/chart.js';
 import * as Alert from './modules/alert.js';
 
 window.addEventListener("load", () => {
-  if (DOM.OUTPUT_DATE != null)
-    Utils.getStringDate(DOM.OUTPUT_DATE);
-  if (DOM.NODE_EXTERIOR_TEMP != null || DOM.NODE_INTERIOR_TEMP != null || DOM.TEMPLATE_WARNING != null) {
-    Utils.getTempJSON("../asset/data/temp.json", data => {
-      Utils.setTemp(DOM, data);
-      Alert.appendWarning(DOM.TEMPLATE_WARNING, DOM.LASTALERT_LIST, data);
-      console.log()
-      if (DOM.LASTALERT_LIST.childElementCount != 0) {
-        DOM.ALERT_PLACEHOLDER.classList.toggle("hidden");
+  if (localStorage.length == 0) {
+    const promise = Utils.getTempJSON("../asset/data/temp.json", r => {
+      let data = Utils.getRandomData(r);
+
+      localStorage.setItem('EXTERIOR_TEMP', data.exterior.temp)
+      localStorage.setItem('EXTERIOR_MAX', data.exterior.max)
+      localStorage.setItem('EXTERIOR_MIN', data.exterior.min)
+
+      localStorage.setItem('INTERIOR_TEMP', data.interior.temp)
+      localStorage.setItem('INTERIOR_MAX', data.interior.max)
+      localStorage.setItem('INTERIOR_MIN', data.interior.min)
+
+      if (DOM.NODE_EXTERIOR_TEMP != null || DOM.NODE_INTERIOR_TEMP != null || DOM.TEMPLATE_WARNING != null) {
+        let node = {
+          "exterior": DOM.NODE_EXTERIOR_TEMP,
+          "interior": DOM.NODE_INTERIOR_TEMP
+        }
+        Utils.setTemp(node);
+
+        Alert.appendWarning(DOM.LASTALERT_LIST);
+
+        if (DOM.LASTALERT_LIST.childElementCount != 0) {
+          DOM.ALERT_PLACEHOLDER.classList.toggle("hidden");
+        }
       }
     });
-  }  
+  }
+
+  if (DOM.OUTPUT_DATE != null)
+    Utils.getStringDate(DOM.OUTPUT_DATE);
+
+  if (DOM.NODE_EXTERIOR_TEMP != null || DOM.NODE_INTERIOR_TEMP != null || DOM.TEMPLATE_WARNING != null) {
+    let node = {
+      "exterior": DOM.NODE_EXTERIOR_TEMP,
+      "interior": DOM.NODE_INTERIOR_TEMP
+    }
+    Utils.setTemp(node);
+
+    Alert.appendWarning(DOM.LASTALERT_LIST);
+
+    if (DOM.LASTALERT_LIST.childElementCount != 0) {
+      DOM.ALERT_PLACEHOLDER.classList.toggle("hidden");
+    }
+  }
+
   if (DOM.EXTERIOR_MINI_CARD != null) {
-    Utils.getTempJSON("../asset/data/temp.json", data => Utils.setTempExterior(DOM, data));
-    makeChart(DOM.CANVAS_EXTERIOR)
+    Utils.setTemp(DOM.EXTERIOR_MINI_CARD, "exterior");
+    makeChart(DOM.CANVAS_EXTERIOR);
   }
   if (DOM.INTERIOR_MINI_CARD != null) {
-    Utils.getTempJSON("../asset/data/temp.json", data => Utils.setTempExterior(DOM, data));
-    makeChart(DOM.CANVAS_INTERIOR)
+    Utils.setTemp(DOM.INTERIOR_MINI_CARD, "interior");
+    makeChart(DOM.CANVAS_INTERIOR);
   }
   if (DOM.TEMPLATE_INTERIOR != null) {
     let data = [
@@ -47,3 +80,12 @@ window.addEventListener("load", () => {
     Utils.showContent(DOM.TEMPLATE_EXTERIOR, DOM.HISTORY, data)
   }
 })
+
+if (DOM.FETCH_NEW_DATA != null) {
+  DOM.FETCH_NEW_DATA.addEventListener('click', () => {
+    localStorage.clear()
+    window.location = ''
+  });
+}
+
+

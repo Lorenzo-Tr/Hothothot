@@ -9,49 +9,36 @@ export async function getTempJSON(path, callback) {
   return callback(await fetch(path).then(r => r.json()));
 }
 
-export function setTemp(DOM, data) {
-  let exterior = DOM.NODE_EXTERIOR_TEMP.querySelectorAll("data")
-  let interior = DOM.NODE_INTERIOR_TEMP.querySelectorAll("data")
+export function setTemp(node, option = "all") {
+  if (option === "all") {
+    node.exterior = node.exterior.querySelectorAll("data")
+    node.interior = node.interior.querySelectorAll("data")
+  } else {
+    node = {
+      "interior": node.querySelectorAll("data"),
+      "exterior": node.querySelectorAll("data"),
+    }
+  }
 
-  let exteriorTemp = exterior[0];
-  let exteriorMaxTemp = exterior[1];
-  let exteriorMinTemp = exterior[2];
+  if (option === "all" || option === "exterior") {
+    var domExteriorTemp = node.exterior[0];
+    var domExteriorMaxTemp = node.exterior[1];
+    var domExteriorMinTemp = node.exterior[2];
 
-  let interiorTemp = interior[0];
-  let interiorMaxTemp = interior[1];
-  let interiorMinTemp = interior[2];
+    domExteriorTemp.setAttribute("value", `${localStorage.getItem('EXTERIOR_TEMP')}`)
+    domExteriorMaxTemp.setAttribute("value", `${localStorage.getItem('EXTERIOR_MAX')}`)
+    domExteriorMinTemp.setAttribute("value", `${localStorage.getItem('EXTERIOR_MIN')}`)
+  }
 
-  exteriorTemp.setAttribute("value", `${data.exterior.temp}`)
-  exteriorMaxTemp.setAttribute("value", `${data.exterior.max}`)
-  exteriorMinTemp.setAttribute("value", `${data.exterior.min}`)
+  if (option === "all" || option === "interior") {
+    var domInteriorTemp = node.interior[0];
+    var domInteriorMaxTemp = node.interior[1];
+    var domInteriorMinTemp = node.interior[2];
 
-  interiorTemp.setAttribute("value", `${data.interior.temp}`)
-  interiorMaxTemp.setAttribute("value", `${data.interior.max}`)
-  interiorMinTemp.setAttribute("value", `${data.interior.min}`)
-}
-
-export function setTempExterior(DOM, data) {
-  let exterior = DOM.EXTERIOR_MINI_CARD.querySelectorAll("data")
-
-  let exteriorTemp = exterior[0];
-  let exteriorMaxTemp = exterior[1];
-  let exteriorMinTemp = exterior[2];
-
-  exteriorTemp.setAttribute("value", `${data.exterior.temp}`)
-  exteriorMaxTemp.setAttribute("value", `${data.exterior.max}`)
-  exteriorMinTemp.setAttribute("value", `${data.exterior.min}`)
-}
-
-export function setTempInterior(DOM, data) {
-  let interior = DOM.INTERIOR_MINI_CARD.querySelectorAll("data")
-
-  let interiorTemp = interior[0];
-  let interiorMaxTemp = interior[1];
-  let interiorMinTemp = interior[2];
-
-  interiorTemp.setAttribute("value", `${data.interior.temp}`)
-  interiorMaxTemp.setAttribute("value", `${data.interior.max}`)
-  interiorMinTemp.setAttribute("value", `${data.interior.min}`)
+    domInteriorTemp.setAttribute("value", `${localStorage.getItem('INTERIOR_TEMP')}`)
+    domInteriorMaxTemp.setAttribute("value", `${localStorage.getItem('INTERIOR_MAX')}`)
+    domInteriorMinTemp.setAttribute("value", `${localStorage.getItem('INTERIOR_MIN')}`)
+  }
 }
 
 export function showContent(DOM, parent, data) {
@@ -65,4 +52,24 @@ export function showContent(DOM, parent, data) {
     parent.appendChild(clone.content);
   });
   
+}
+
+export function mixColor(color1, color2, weight) {
+  var w1 = weight;
+  var w2 = 1 - w1;
+  var rgb = [Math.round(color1[0] * w1 + color2[0] * w2),
+      Math.round(color1[1] * w1 + color2[1] * w2),
+      Math.round(color1[2] * w1 + color2[2] * w2)];
+  return rgb;
+}
+
+// Get random index
+export function getRandomData(data) {
+  var size = 0,
+  key;
+  for (key in data) {
+    if (data.hasOwnProperty(key)) size++;
+  }
+  let i = Math.floor(Math.random() * size);
+  return data[i];
 }
