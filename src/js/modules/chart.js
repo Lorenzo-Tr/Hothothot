@@ -1,57 +1,4 @@
-import {
-  Chart,
-  ArcElement,
-  LineElement,
-  BarElement,
-  PointElement,
-  BarController,
-  BubbleController,
-  DoughnutController,
-  LineController,
-  PieController,
-  PolarAreaController,
-  RadarController,
-  ScatterController,
-  CategoryScale,
-  LinearScale,
-  LogarithmicScale,
-  RadialLinearScale,
-  TimeScale,
-  TimeSeriesScale,
-  Decimation,
-  Filler,
-  Legend,
-  Title,
-  Tooltip,
-  SubTitle
-} from 'chart.js';
-
-Chart.register(
-  ArcElement,
-  LineElement,
-  BarElement,
-  PointElement,
-  BarController,
-  BubbleController,
-  DoughnutController,
-  LineController,
-  PieController,
-  PolarAreaController,
-  RadarController,
-  ScatterController,
-  CategoryScale,
-  LinearScale,
-  LogarithmicScale,
-  RadialLinearScale,
-  TimeScale,
-  TimeSeriesScale,
-  Decimation,
-  Filler,
-  Legend,
-  Title,
-  Tooltip,
-  SubTitle
-);
+import Chart from 'chart.js/auto';
 
 
 export function makeChart(DOM) {
@@ -67,7 +14,7 @@ export function makeChart(DOM) {
   const data = {
     labels: labels,
     datasets: [{
-      label: 'My First dataset',
+      label: 'Temp',
       fill: true,
       backgroundColor: 'rgba(252, 37, 37, .2)',
       borderColor: '#FC2525',
@@ -75,6 +22,8 @@ export function makeChart(DOM) {
       tension: .4
     }]
   };
+
+  Chart.defaults.borderColor = "rgba(255, 255, 255, .1)";
 
   const config = {
     type: 'line',
@@ -84,6 +33,19 @@ export function makeChart(DOM) {
         legend: {
           display: false,
         }
+      },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      },
+      grid: {
+        drawBorder: false,
+        drawOnChartArea: false
+      },
+      parsing: {
+        xAxisKey: 'hours',
+        yAxisKey: 'temp'
       }
     }
   };

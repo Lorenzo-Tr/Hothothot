@@ -94,3 +94,7 @@ h1 {
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+
+#lastAlert li{
+  list-style: none;
+}
