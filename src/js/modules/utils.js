@@ -53,3 +53,16 @@ export function setTempInterior(DOM, data) {
   interiorMaxTemp.setAttribute("value", `${data.interior.max}`)
   interiorMinTemp.setAttribute("value", `${data.interior.min}`)
 }
+
+export function showContent(DOM, parent, data) {
+  console.log(data)
+  data.forEach(element => {
+    let clone = DOM.cloneNode(true);
+    let hours = clone.content.querySelector(".hours");
+    let temp = clone.content.querySelector(".historyTemp");
+    hours.setAttribute('value', Object.keys(element))
+    temp.setAttribute('value', Object.values(element))
+    parent.appendChild(clone.content);
+  });
+  
+}

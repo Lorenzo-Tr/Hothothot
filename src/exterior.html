@@ -41,31 +41,15 @@
       <h2>Chart</h2>
       <canvas class=" mt-5 bg-gray-800 p-5 rounded-3xl" id="exteriorChart"></canvas>
     </section>
-    <section class="mt-5">
+    <section id="history" class="my-5">
       <h2>History</h2>
-      <ul class="flex gap-2 rounded-3xl p-6 lg:max-w-md w-full min-w-min bg-gray-800 mt-5">
-        <li>
-          <data value="11:00" class="text-5xl pr-5 font-bold border-r-2 setDataValue"></data>
-        </li>
-        <li class="flex justify-center px-5">
-          <data value="26" class="inline-flex items-center text-3xl setValue"></data>
-        </li>
-      </ul>
-      <ul class="flex gap-2 rounded-3xl p-6 lg:max-w-md w-full min-w-min bg-gray-800 mt-5">
-        <li>
-          <data value="11:00" class="text-5xl pr-5 font-bold border-r-2 setDataValue"></data>
-        </li>
-        <li class="flex justify-center px-5">
-          <data value="22" class="inline-flex items-center text-3xl setValue"></data>
-        </li>
-      </ul>
-      <template>
+      <template id="ExteriorHistory">
         <ul class="flex gap-2 rounded-3xl p-6 lg:max-w-md w-full min-w-min bg-gray-800 mt-5">
           <li>
-            <data value="10:00" class="text-5xl pr-5 font-bold border-r-2 setDataValue"></data>
+            <data value="10:00" class="text-5xl pr-5 font-bold border-r-2 setDataValue hours"></data>
           </li>
           <li class="flex justify-center px-5">
-            <data value="20" class="inline-flex items-center text-3xl setValue"></data>
+            <data value="20" class="inline-flex items-center text-3xl setValue historyTemp"></data>
           </li>
         </ul>
       </template>
