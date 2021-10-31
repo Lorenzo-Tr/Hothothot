@@ -6,7 +6,7 @@ Créer dans le cadre du cours [ECUE11] Intituler "Langages pour le Web".
 
 Étant donné que j'ai déjà fait plusieurs projets en CSS et que j'ai déjà fait un projet en SASS, je me suis imposé le fait de le développer avec le framework css `Tailwindcss`
 
-## 💾 Mes compétences
+# 💾 Mes compétences
 
 |    		|Niveau   |			  	   |Niveau           
 |-------|---------|------------|--------------
@@ -40,15 +40,15 @@ J'ai donc profité de ce projet pour expérimenter les modules incorporés dans 
 import * as Exemple from './modules/exemple.js';
 ```
 
-## 👨‍🎓 Mon parcours
+# 👨‍🎓 Mon parcours
 * Bac STI2D SIN 
 * DUT MMI
 * LP DEV WEB
 
-## 🚀 Développer avec
+# 🚀 Développer avec
 `Tailwind`   `Snowpack` `HTML` `JavaScript`
 
-## 📖 L'architecture
+# 📖 L'architecture
 ```
 .
 ├── dist        # Répertoire contenant les fichiers prêt pour la mise en production
