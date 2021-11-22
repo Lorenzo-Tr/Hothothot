@@ -1,5 +1,5 @@
 
-![enter image description here](https://lp-web.lorenzotringali.fr/asset/img/CoverHothothot.jpg)
+![enter image description here](https://lp-web.lorenzotringali.fr/hothothot/asset/img/CoverHothothot.jpg)
 # 👋 Présentation
 
 Créer dans le cadre du cours [ECUE11] Intituler "Langages pour le Web". 
